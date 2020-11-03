@@ -1,5 +1,8 @@
 package persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class main {
 
 	public static void main(String[] args) {
@@ -39,6 +42,23 @@ public class main {
 		EmailController email_cont = new EmailController();
 		
 		email_cont.create(email);
+		
+		
+		System.out.println("---------------- MANY TO MANY ---------------------------");
+		
+		Role role = new Role();
+		role.setName("Admin");
+		
+		List<Role> listRole = new ArrayList<Role>();
+
+		listRole.add(role);
+		
+		test.setRoles(listRole);
+		
+		
+		PersonneController pers_cont2 = new PersonneController();
+		
+		pers_cont2.create(test);
 		
 
 	}
