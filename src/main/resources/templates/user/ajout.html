@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+      
+      
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      
+<head>
+    <title>Nouvel utilsateur</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <form method="post" th:action="@{/addUser}" th:object="${user}">
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="nom" name="nom" required />
+            
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control"  id="prenom" name="prenom" required />
+            
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-control-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" required />
+            
+        </div>
+        
+        <div class="form-group">
+            
+            <select multiple class="form-control" id="role" name="roles">
+                <option th:each="role:${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+            </select>
+
+        </div>
+
+        <input type="submit" value="Je crée mon compte" class="btn btn-primary" /> 
+        
+    </form>
+</div>
+</body>
+</html>
